@@ -6,7 +6,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('(?:googleapis|gstatic)\.com.$'),
+  new RegExp(' .*(?:googleapis|pgimgs)\\.com.*'),
   new workbox.strategies.StaleWhileRevalidate(
     {
       cacheName: 'google-fonts'
@@ -15,13 +15,38 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('https://sg-rpfs-integration\.pgimgs\.com.*'),
-  new workbox.strategies.CacheFirst(
-    {
-      cacheName: 'imgs'
-    }
-  )
+  new RegExp('https://sg1-cdn-integration.pgimgs.com/.*'),
+  new workbox.strategies.CacheFirst()
 );
+
+workbox.routing.registerRoute(
+  new RegExp('https://sg2-cdn-integration.pgimgs.com/.*'),
+  new workbox.strategies.CacheFirst()
+);
+
+workbox.routing.registerRoute(
+  new RegExp('https://c6649169.ngrok.io/v1/listings/.*'),
+  new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.registerRoute(
+  new RegExp('https://c6649169.ngrok.io/v1/listings/.*'),
+  new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.registerRoute(
+  new RegExp('/_next/'),
+  new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.setDefaultHandler(
+  new workbox.strategies.StaleWhileRevalidate()
+);
+
+workbox.routing.setDefaultHandler(({url, event, params}) => {
+  console.log('==================',url);
+});
+
 
 self.addEventListener('install', function (event) {
   console.log('[Service Worker] Installing Service Worker ...', event);

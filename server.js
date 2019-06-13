@@ -25,6 +25,7 @@ app.prepare().then(() => {
   const server = express()
   server.use(bodyParser.urlencoded({ extended: true }))
   server.use(bodyParser.json())
+
   server.get('/autocomplete', function (req, res) {
     Fetch({ url: autoCompleteDomain, params: req.query }).then(function (response) {
       res.send(response);
@@ -42,6 +43,10 @@ app.prepare().then(() => {
       res.send(response);
     });
   })
+
+  server.use(express.static('public'))
+  server.use(express.static('static'))
+
   server.get('*', (req, res) => {
     try {
       return handle(req, res)

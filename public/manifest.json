@@ -5,7 +5,7 @@
   "theme_color": "#AA2121",
   "background_color": "#AA2121",
   "display": "standalone",
-  "Scope": ".",
+  "Scope": "./",
   "start_url": "",
   "orientation": "portrait-primary",
   "icons": [
