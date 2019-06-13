@@ -9,7 +9,7 @@ export function* fetchSuggestion({params}) {
   try {
     // ${params.listingId}
      const data = yield call(Fetch, {
-       url: `${AUTOCOMPLETE_API}/?region=sg&query=${params.query}&limit=10`
+       url: `${AUTOCOMPLETE_API}/?region=sg&query=${params.query}&limit=5`
      });
      yield put(getSuggestionSuccess(data));
   } catch (e) {

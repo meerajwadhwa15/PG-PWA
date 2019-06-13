@@ -10,7 +10,7 @@ export default (state = {}, action = {}) => {
       }
       return {
         ...state,
-        listings: data || [],
+        listings: state.listings && state.listings.length ? state.listings.concat(data || []): data || [],
       };
       break;
     case GET_LISTINGS_DETAIL_SUCCESS:

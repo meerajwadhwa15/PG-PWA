@@ -9,7 +9,7 @@ export function* fetchListings(params) {
   try {
      const data = yield call(Fetch, {
       url: `${PROPERTY_SEARCH_API}`,
-      params: {...params.params, region: 'sg', 'page': 1, limit: 20, locale: 'en'}
+      params: {'page': 1, ...params.params, region: 'sg', limit: 20, locale: 'en'}
      });
      yield put(getListingDetailSuccess({
        total: data.total,
