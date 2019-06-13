@@ -33,6 +33,18 @@ export default class MyDocument extends Document {
     }
   }
 
+    static enablePrompt() {
+        return {
+            __html: `let deferredPrompt;
+
+                window.addEventListener('beforeinstallprompt', function(event) {
+                  event.preventDefault();
+                  deferredPrompt = event;
+                });
+            `
+        }
+    }
+
   render() {
     return (
       <html lang="en">
@@ -43,8 +55,11 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href="https://unpkg.com/react-bootstrap-typeahead/css/Typeahead.css"></link>
           <script type="module" dangerouslySetInnerHTML={MyDocument.generateServiceScript()}>
           </script>
+            <script type="module" dangerouslySetInnerHTML={MyDocument.enablePrompt()}>
+            </script>
         </Head>
         <body className="layout-web listing lang-en app-sg env-prod  is-new-brand not-authenticated">
+
           <Main />
           <NextScript />
         </body>
