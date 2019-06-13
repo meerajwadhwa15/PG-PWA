@@ -7,7 +7,7 @@ import ListingSearchResultCount from './../../molecules/ListingSearchResultCount
 class Listings extends PureComponent {
   componentWillMount() {
     if (!this.props.listings) {
-      this.props.listingSearchAction();
+      this.props.listingSearchAction(this.props.query);
     }
   }
 
@@ -36,7 +36,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  listingSearchAction: () => { dispatch(getListings()) }
+  listingSearchAction: (params) => { dispatch(getListings(params)) }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Listings);

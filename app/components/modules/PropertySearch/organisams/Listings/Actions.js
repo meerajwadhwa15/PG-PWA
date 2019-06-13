@@ -1,7 +1,8 @@
 import { GET_LISTINGS, GET_LISTINGS_SUCCESS, GET_LISTINGS_DETAIL_SUCCESS, GET_META_SUCCESS } from './Constants';
 
-export const getListings = () => ({
+export const getListings = (params) => ({
   type: GET_LISTINGS,
+  params,
 });
 
 export const getListingsSuccess = (data) => ({

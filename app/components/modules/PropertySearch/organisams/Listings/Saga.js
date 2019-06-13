@@ -4,10 +4,12 @@ import { GET_LISTINGS } from './Constants';
 import { getListingsSuccess, getListingDetailSuccess, getMetaSuccess } from './Actions';
 import {PROPERTY_SEARCH_API} from './../../../../../config/api';
 
-export function* fetchListings(dispatch) {
+export function* fetchListings(params) {
+  console.log('params', params.params);
   try {
      const data = yield call(Fetch, {
-      url: `${PROPERTY_SEARCH_API}?region=sg&page=1&limit=20&locale=en`
+      url: `${PROPERTY_SEARCH_API}`,
+      params: {...params.params, region: 'sg', 'page': 1, limit: 20, locale: 'en'}
      });
      yield put(getListingDetailSuccess({
        total: data.total,

@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import PropertySearchTemplate from '../app/components/templates/PropertySearch';
 
 class PropertyListingPage extends Component {
-    static getInitialProps({store, isServer, pathname, query}) {
-        return {};
+    static getInitialProps({query}) {
+        return {query};
     }
     render() {
         return (
