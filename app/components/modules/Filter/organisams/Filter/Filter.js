@@ -12,6 +12,10 @@ import Styles from './Filter.style';
 
 class Filter extends PureComponent {
 
+    componentWillMount() {
+        this.state = this.props.query;
+    }
+
     doSearch() {
         Router.push({
             pathname: '/listings',
@@ -34,8 +38,8 @@ class Filter extends PureComponent {
                     <div className="inner-container">
                         <div className="form-group search-box-parameters search-box-query clearfix">
                             <div className="input-group" style={{display: 'flex', height: '48px'}}>
-                                <Type updateFilter={this.updateFilter.bind(this)} />
-                                <Typeahead suggestion={this.props.suggestion} updateFilter={this.updateFilter.bind(this)} fetchSuggestionAction={this.props.fetchSuggestionAction} />
+                                <Type {...this.props.query} updateFilter={this.updateFilter.bind(this)} />
+                                <Typeahead {...this.props.query} suggestion={this.props.suggestion} updateFilter={this.updateFilter.bind(this)} fetchSuggestionAction={this.props.fetchSuggestionAction} />
                                 {/* <Price updateFilter={this.updateFilter.bind(this)} /> */}
                                 {/* <Bedroom updateFilter={this.updateFilter.bind(this)} /> */}
                                 <div className="input-group-btn">

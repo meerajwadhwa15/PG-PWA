@@ -51,8 +51,8 @@ app.prepare().then(() => {
   server.get('*', (req, res) => {
 
     const parsedUrl = parse(req.url, true)
-    const { pathname, query } = parsedUrl
-console.log(pathname);
+    const { pathname, query } = parsedUrl;
+
     try {
       if (pathname.match(/^\/listing\/\d/)) {
         try {

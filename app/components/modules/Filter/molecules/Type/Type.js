@@ -4,9 +4,16 @@ import Button from './../../../../atoms/Button';
 class TypeFilter extends PureComponent {
 
     componentWillMount() {
+        let val = this.props.listing_type;
+        if(val === 'rent') {
+            val = 'Rent';
+        } else {
+            val = 'Buy';
+        }
+
         this.setState({
             showDropdown: false,
-            selectedValue: 'Buy',
+            selectedValue: val,
         });
     }
 

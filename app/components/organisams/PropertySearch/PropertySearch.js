@@ -1,8 +1,8 @@
 import Filter from './../../modules/Filter/organisams/Filter';
 
-const PropertySearch = () => (
+const PropertySearch = (props) => (
   <div className="searchbox-container">
-    <Filter />
+    <Filter {...props} />
   </div>
 );
 
