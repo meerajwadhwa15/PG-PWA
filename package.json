@@ -1,0 +1,32 @@
+{
+  "name": "PGPWA",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "next": "^8.0.4",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
+    "next-routes": "^1.4.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
+    "redux-immutable": "^4.0.0",
+    "redux-saga": "^1.0.2",
+    "redux-sagas-dynamic-injector": "^1.0.0",
+    "saga": "^4.0.0-alpha",
+    "styled-components": "^4.2.1",
+    "url": "^0.11.0"
+  },
+  "scripts": {
+    "dev": "node server.js --inspect",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "start-storybook-theme": "start-storybook -p 9001 -c .storybook-theme",
+    "start-storybook-app": "start-storybook -p 8001 -c .storybook-app"
+  },
+  "devDependencies": {
+    "compression": "^1.7.4",
+    "redux-devtools-extension": "^2.13.8"
+  }
+}
