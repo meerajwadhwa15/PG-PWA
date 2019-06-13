@@ -34,7 +34,7 @@ export default ({title, desctiption, price, sizes, location, date}) => (
 
             <div className="property-info-element availability">
               <span className="element-label">
-              {new Date(date.available.date).getTime() <= new Date().getTime() ? 'Ready to Move': null}
+              {date.available ? new Date(date.available.date).getTime() <= new Date().getTime() ? 'Ready to Move': null : null}
               </span>
             </div>
                       </div>
