@@ -1,7 +1,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.routing.registerRoute(
-  new RegExp('(?:listingsearch)\.com.$'),
+  'http://10.41.100.142:9000',
   new workbox.strategies.NetworkFirst()
 );
 
@@ -14,6 +14,15 @@ workbox.routing.registerRoute(
   )
 );
 
+workbox.routing.registerRoute(
+  new RegExp('https://sg-rpfs-integration\.pgimgs\.com.*'),
+  new workbox.strategies.CacheFirst(
+    {
+      cacheName: 'imgs'
+    }
+  )
+);
+
 self.addEventListener('install', function (event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
 });
@@ -21,6 +30,12 @@ self.addEventListener('install', function (event) {
 self.addEventListener('activate', function (event) {
   console.log('[Service Worker] Activating Service Worker ....', event);
   return self.clients.claim();
+});
+
+self.addEventListener('beforeinstallprompt', function(event) {
+  console.log('beforeinstallprompt fired');
+  event.preventDefault();
+  return false;
 });
 
 workbox.precaching.precacheAndRoute([
@@ -58,7 +73,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "service-worker-base.js",
-    "revision": "9208c40c45701a1c87469af72b3be854"
+    "revision": "838bf2f266cc8e53f6490fe5f427033d"
   },
   {
     "url": "styles.css",
