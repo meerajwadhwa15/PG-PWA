@@ -2,11 +2,10 @@ import React, { PureComponent } from 'react'
 import { connect } from "react-redux";
 import PropertyItem from '../../molecules/PropertyItem';
 import { getListings } from './Actions';
-import Loader from './../../molecules/Loader';
+import ListLoader from './../../../../molecules/ListLoader';
 
 class Listings extends PureComponent {
   componentWillMount() {
-    // Fetch Listings
     if (!this.props.listings) {
       this.props.listingSearchAction();
     }
@@ -15,7 +14,7 @@ class Listings extends PureComponent {
   render() {
     const { listings } = this.props;
     return (<div className="listing-widget-new">
-      {!listings ? <Loader /> : listings.map((listing) => (
+      {!listings ? <ListLoader /> : listings.map((listing) => (
         <PropertyItem key={listing.id} item={listing} />
       ))}
     </div>);

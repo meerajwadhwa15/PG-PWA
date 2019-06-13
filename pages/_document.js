@@ -1,7 +1,5 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-
-
 export default class MyDocument extends Document {
 
    static async getInitialProps(ctx) {
@@ -34,6 +32,9 @@ export default class MyDocument extends Document {
       <html lang="en">
         <Head>
           <link href="http://cdn1.pgimgs.com/1554369362/sf2-search/css/desktop_css.css" type="text/css" rel="stylesheet" ></link>
+          <link href="http://propertygurusg.api.useinsider.com/css/sp-style.css?v=0.1" type="text/css" rel="stylesheet" ></link>
+          <link href="http://c.evidon.com/a/COMMON.css?r=0.7869428665532381" type="text/css" rel="stylesheet" ></link>
+
         </Head>
         <body className="layout-web listing lang-en app-sg env-prod  is-new-brand not-authenticated scroll-past-header">
           <Main />

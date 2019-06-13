@@ -1,3 +1,2 @@
-import ListingSaga from './../components/organisams/Listings/Saga';
-
+import ListingSaga from '../components/modules/PropertySearch/organisams/Listings/Saga';
 export default [ListingSaga];

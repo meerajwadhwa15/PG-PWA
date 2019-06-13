@@ -1,8 +1,7 @@
-import Listings from '../../organisams/Listings';
-import PropertySearch from '../../molecules/PropertySearch';
-import ExploreAreas from '../../molecules/ExploreAreas';
-import ListingSearchResultCount from '../../molecules/ListingSearchResultCount';
-import CommonLayout from './../Common'
+import CommonLayout from './../Common';
+import PropertySearch from './../../organisams/PropertySearch';
+import Listings from '../../modules/PropertySearch/organisams/Listings';
+import ListingSearchResultCount from './../../modules/PropertySearch/molecules/ListingSearchResultCount'
 
 const SearchTemplate = ({ listingSearchAction }) => (
   <CommonLayout>

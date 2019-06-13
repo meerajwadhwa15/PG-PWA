@@ -1,5 +1,5 @@
 import { put, call, takeEvery } from 'redux-saga/effects'
-import Fetch from './../../../libs/fetch';
+import Fetch from './../../../../../libs/fetch';
 import { GET_LISTINGS } from './Constants';
 import { getListingsSuccess, getListingDetailSuccess, getMetaSuccess } from './Actions';
 
