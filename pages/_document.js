@@ -43,7 +43,7 @@ export default class MyDocument extends Document {
           <script type="module" dangerouslySetInnerHTML={MyDocument.generateServiceScript()}>
           </script>
         </Head>
-        <body className="layout-web listing lang-en app-sg env-prod  is-new-brand not-authenticated scroll-past-header">
+        <body className="layout-web listing lang-en app-sg env-prod  is-new-brand not-authenticated">
           <Main />
           <NextScript />
         </body>

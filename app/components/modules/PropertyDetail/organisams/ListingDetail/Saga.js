@@ -6,9 +6,8 @@ import {PROPERTY_DETAIL_API} from './../../../../../config/api';
 
 export function* fetchPropertyDetail({params}) {
   try {
-    // ${params.listingId}
      const data = yield call(Fetch, {
-       url: `${PROPERTY_DETAIL_API}/21834366?region=sg&id=21834366`
+       url: `${PROPERTY_DETAIL_API}/${params.listingId}?region=sg&id=${params.listingId}`
      });
      yield put(getPropertyDetailSuccess(data));
   } catch (e) {

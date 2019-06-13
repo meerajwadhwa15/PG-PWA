@@ -13,12 +13,12 @@ async function Fetch({ type, url, data, params }) {
     url,
     data,
     params,
-    timeout: 5000,
+    timeout: 10000,
   });
   return res.data;
 }
 
-const listingDomain = 'http://10.41.100.142:9000/v1/listings';
+const listingDomain = 'http://listingsearch-sg.staging.guruestate.com/v1/listings';
 const autoCompleteDomain = 'https://api.staging.propertyguru.com:443/v1/autocomplete';
 
 app.prepare().then(() => {
