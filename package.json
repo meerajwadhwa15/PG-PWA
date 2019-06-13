@@ -20,10 +20,8 @@
   },
   "scripts": {
     "dev": "node server.js --inspect",
-    "build": "next build",
-    "start": "NODE_ENV=production node server.js",
-    "start-storybook-theme": "start-storybook -p 9001 -c .storybook-theme",
-    "start-storybook-app": "start-storybook -p 8001 -c .storybook-app"
+    "build": "NODE_ENV=production next build",
+    "start": "NODE_ENV=production node server.js"
   },
   "devDependencies": {
     "compression": "^1.7.4",

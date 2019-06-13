@@ -1,0 +1,47 @@
+import { PureComponent } from 'react';
+import Button from './../../../../atoms/Button';
+
+class TypeFilter extends PureComponent {
+
+    componentWillMount() {
+        this.setState({
+            showDropdown: false,
+            selectedValue: 'Buy',
+        });
+    }
+
+    toggleDropdown() {
+        this.setState({
+            showDropdown: true
+        });
+    }
+
+    updateSelectedValue(e) {
+        this.setState({
+            showDropdown: false,
+            selectedValue: e.currentTarget.innerText,
+        });
+    }
+
+    render() {
+        const { showDropdown, selectedValue } = this.state;
+        return (<div className="js-form-group btn-group param-listing_type btn-group-expand-right js-has-value">
+            <Button type="button" onClick={this.toggleDropdown.bind(this)} className="btn btn-default-inverted dropdown-toggle" title={selectedValue} data-toggle="dropdown">
+                <span className="btn-label">Looking For</span>
+                <span className="btn-title">{selectedValue}</span>
+            </Button>
+
+            {showDropdown ?
+                <ul className="dropdown-menu" style={{display: 'block'}} role="menu">
+                    <li className={`${selectedValue === 'Buy'? 'active': ''}`}>
+                        <a href="javascript: void(0);" onClick={this.updateSelectedValue.bind(this)} className={`${selectedValue === 'Buy'? 'selected': ''}`}>Buy</a></li>
+                    <li className={`${selectedValue === 'Rent'? 'active': ''}`}>
+                        <a onClick={this.updateSelectedValue.bind(this)} className={`${selectedValue === 'Rent'? 'selected': ''}`} href="javascript: void(0);">Rent</a>
+                    </li>
+                </ul> :
+                null}
+        </div>);
+    }
+}
+
+export default TypeFilter;

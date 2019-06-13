@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-
 import createReducer from './reducers';
 import Saga from './sagas';
 
@@ -9,7 +8,6 @@ const composeEnhancers =
   process.env.NODE_ENV !== 'production' && typeof window === 'object'
     ? composeWithDevTools
     : compose;
-
 
 export default (options) => {
   const configureStore = (initialState = {}) => {
