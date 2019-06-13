@@ -15,9 +15,20 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
+  new RegExp('https://sg1-cdn-integration.pgimgs.com/.*'),
+  new workbox.strategies.CacheFirst()
+);
+
+workbox.routing.registerRoute(
   new RegExp('https://sg2-cdn-integration.pgimgs.com/.*'),
   new workbox.strategies.CacheFirst()
 );
+
+workbox.routing.registerRoute(
+  new RegExp('https://c6649169.ngrok.io/v1/listings/.*'),
+  new workbox.strategies.NetworkFirst()
+);
+
 
 workbox.routing.setDefaultHandler(({url, event, params}) => {
   console.log('==================',url);
