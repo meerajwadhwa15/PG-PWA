@@ -13,7 +13,7 @@ export default css`
 
       .react-autosuggest__container {
         position: relative;
-        z-index: 2000;
+        z-index: 1000;
       }
 
       .react-autosuggest__input {
