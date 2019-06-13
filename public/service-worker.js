@@ -29,6 +29,19 @@ workbox.routing.registerRoute(
   new workbox.strategies.NetworkFirst()
 );
 
+workbox.routing.registerRoute(
+  new RegExp('https://c6649169.ngrok.io/v1/listings/.*'),
+  new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.registerRoute(
+  new RegExp('/_next/'),
+  new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.setDefaultHandler(
+  new workbox.strategies.StaleWhileRevalidate()
+);
 
 workbox.routing.setDefaultHandler(({url, event, params}) => {
   console.log('==================',url);
