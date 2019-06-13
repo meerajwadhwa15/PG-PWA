@@ -18,7 +18,7 @@ const Header = () => (
                                 <li className="">
                                     <Anchor href={{ pathname: "/property-for-sale"}} title="Property for Sale in Singapore" data-tracking="Buy" className="main-nav-a">Buy</Anchor>
                                 </li>
-                                <li className=" active">
+                                <li>
                                     <Anchor href={{ pathname: "/property-for-rent"}} title="Property for Rent in Singapore" data-tracking="Rent" className="main-nav-a">Rent</Anchor>
                                 </li>
                             </ul>

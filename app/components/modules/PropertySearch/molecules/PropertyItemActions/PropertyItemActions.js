@@ -10,7 +10,7 @@ export default () => (<div className="btn-tools col-xs-12 col-sm-5 col-md-5 ">
     <i className="pgicon pgicon-phone-o"></i>
   </a>
 
-  <a role="button" data-listing-id="20887289" href="https://www.integration.propertyguru.com.sg/listing/20887289/for-rent-nouvel-18?ref=ls%7Cgeneric-specialist%7C2%7C1#contact-agent" className="hidden-xs sms-button  btn">
+  <a role="button" data-listing-id="20887289" href="javascript: void(0);" className="hidden-xs sms-button  btn">
     <i className="pgicon pgicon-comment-o"></i>
   </a>
 

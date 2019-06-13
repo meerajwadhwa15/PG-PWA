@@ -1,7 +1,7 @@
 import Anchor from './../../../../atoms/Anchor';
 import { ListingDetailPage } from './../../../../../config/routes';
 
-export default ({ title, id, location, price, bedrooms, bathrooms, floorArea, floorAreaPricePerSq }) => (
+export default ({ title, id, location, price, bedrooms, date, bathrooms, property, floorArea, floorAreaPricePerSq }) => (
   <div className="col-xs-12 col-sm-7 listing-description">
     <div className="header-wrapper">
       <div className="header-container">
@@ -18,7 +18,7 @@ export default ({ title, id, location, price, bedrooms, bathrooms, floorArea, fl
       </li>
 
       <li className="listing-availability pull-left">
-        <span className="list-type-icon"></span>Ready to move
+        <span className="list-type-icon"></span>{date.available? new Date(date.available.date).getTime() <= new Date().getTime() ? 'Ready to Move': date.available.date: null}
                     </li>
     </ul>
 
@@ -29,11 +29,10 @@ export default ({ title, id, location, price, bedrooms, bathrooms, floorArea, fl
     </ul>
 
     <ul className="clear-both listing-property-type">
-      <li className="pull-left"><span>Condominium</span></li>
-      <li className="pull-left"><span>Partially Furnished</span></li>
-      <li className="pull-left"><span>Built: 2016</span></li>
+      {property.typeText ?<li className="pull-left"><span>{property.typeText}</span></li>: null}
+      {property.topMonth? <li className="pull-left"><span>Built: {property.topYear}</span></li>: null}
     </ul>
 
-    <div className="listing-recency"><i className="pgicon pgicon-clock-o"></i>1w</div>
+    <div className="listing-recency"><i className="pgicon pgicon-clock-o"></i>{date.lastPosted? date.lastPosted.date: null}</div>
   </div>
 );
