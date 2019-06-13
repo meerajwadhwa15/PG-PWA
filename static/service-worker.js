@@ -1,30 +1,12 @@
-/**
- * Welcome to your Workbox-powered service worker!
- *
- * You'll need to register this file in your web app and you should
- * disable HTTP caching for this file too.
- * See https://goo.gl/nhQhGp
- *
- * The rest of the code is auto-generated. Please don't update this file
- * directly; instead, make changes to your Workbox build configuration
- * and re-run your build process.
- * See https://goo.gl/2aRDsh
- */
-
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
+workbox.router.registerRoute(/.(?:googleapis|gstatic)\.com.$/, workbox.strategies.staleWhileRevalidate(
+  {
+    cacheName: 'google-fonts'
   }
-});
+));
 
-/**
- * The workboxSW.precacheAndRoute() method efficiently caches and responds to
- * requests for URLs in the manifest.
- * See https://goo.gl/S9QRab
- */
-self.__precacheManifest = [
+workbox.precaching.precacheAndRoute([
   {
     "url": "icons/icon-128x128.png",
     "revision": "9096e96916ab2836d1717b9819479823"
@@ -58,8 +40,11 @@ self.__precacheManifest = [
     "revision": "2cfb70ceece7c3ff703cc8d73ab67d13"
   },
   {
+    "url": "service-worker-base.js",
+    "revision": "f8de3f7b3b63cb4168017817f04bfbd0"
+  },
+  {
     "url": "styles.css",
     "revision": "5fb58032cec9437d3ae75fe21d321d7c"
   }
-].concat(self.__precacheManifest || []);
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+], {});

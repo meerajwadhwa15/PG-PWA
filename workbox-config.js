@@ -1,10 +1,11 @@
 module.exports = {
-  "globDirectory": "./",
+  "globDirectory": "./static",
   "globPatterns": [
-    "./static/**/*.{css,png,js}"
+    "**/*.{css,png,js}"
   ],
   "globIgnores": [
     'service-worker.js',
   ],
+  "swSrc": "./static/service-worker-base.js",
   "swDest": "./static/service-worker.js",
 };
