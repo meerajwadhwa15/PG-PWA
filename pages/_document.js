@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
 
   static generateServiceScript() {
     return {
-      __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js') }) }`
+      __html: ``
     }
   }
 
@@ -57,6 +57,7 @@ export default class MyDocument extends Document {
           </script>
             <script type="module" dangerouslySetInnerHTML={MyDocument.enablePrompt()}>
             </script>
+          <script src="/global.js"></script>
         </Head>
         <body className="layout-web listing lang-en app-sg env-prod  is-new-brand not-authenticated">
 
