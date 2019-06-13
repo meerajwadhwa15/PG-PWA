@@ -7,10 +7,8 @@ import Tabs from './../../molecules/Tabs';
 import PhotoGallery from './../../molecules/PhotoGallery';
 import PriceWidget from './../../molecules/PriceWidget';
 import PropertyDetail from './../../molecules/PropertyDetail';
-import PropertyDetailTags from './../../molecules/PropertyDetailTags';
 import PropertyDetailFacilities from './../../molecules/PropertyDetailFacilities';
 import PropertyDetailProjectInfo from './../../molecules/PropertyDetailProjectInfo';
-import Contact from './../../../../organisams/Contact';
 import { getPropertyDetail } from './Actions';
 import DetailLoader from './../../../../molecules/DetailLoader';
 class PropertyDetailPage extends PureComponent {
@@ -32,10 +30,10 @@ class PropertyDetailPage extends PureComponent {
         <Title>{property.localizedHeadline}</Title>
         <div className="additional-info">
           <Badge>{property.property.typeText}</Badge>
-          <LeadsButton />
+          <LeadsButton id={property.id} />
         </div>
       </div>
-      <PhotoGallery />
+      <PhotoGallery media={property.media} />
       <div className="in-page-nav hidden-xs hidden-sm">
         <Tabs />
       </div>
@@ -47,12 +45,9 @@ class PropertyDetailPage extends PureComponent {
               <section className="main-content listing-detail listing-detail-body">
                 <PriceWidget price={property.price} location={property.location} title={property.localizedTitle} description={property.localizedDescription} sizes={property.sizes} date={property.dates} />
                 <PropertyDetail typeCode={property.typeCode} property={property.property} pricePerArea={property.pricePerArea} id={property.id} agent={property.agent} date={property.dates} propertyUnit={property.propertyUnit} />
-                <PropertyDetailFacilities />
+                <PropertyDetailFacilities amenities={property.property.amenities} />
                 <PropertyDetailProjectInfo title={property.localizedTitle} property={property.property} />
               </section>
-              <aside role="right-content" className="right-content sticky-container-parent">
-                <Contact />
-              </aside>
             </div>
           </div>
         </div>

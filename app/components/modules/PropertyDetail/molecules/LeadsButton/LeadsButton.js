@@ -1,21 +1,7 @@
-export default ({}) => (
-    <div className="btns">
-      <a href="http://www.facebook.com/dialog/send?app_id=289605188686&amp;link=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" data-raw-url="https://www.propertyguru.com.sg/listing/21517387" className="btn btn-facebook btn-facebook-share btn-facebook-messenger-js btn-square" title="Click here to share on Messenger"><i className="pgicon pgicon-messenger"></i></a>                <a href="https://api.whatsapp.com/send?text=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" className="btn btn-whatsapp btn-square hidden-md hidden-lg" title="Click here to share on Whatsapp"><i className="pgicon pgicon-whatsapp"></i></a>                                                <a data-toggle="modal" href="#shareListingEmail" data-target="#shareListingEmail" title="Share with your friends over email" className="btn btn-gold btn-square hidden-xs hidden-sm"><i className="pgicon pgicon-mail-o sharing-widget-js-email"></i></a>
-      <div className="btn-group js-share-bs-dropdown">
-        <a data-target="#" href="#share" className="btn btn-teal btn-square dropdown-toggle dropdown-hide-toggle listing-detail-header-bar-share" data-toggle="dropdown" title="Share">
-          <i className="pgicon pgicon-share-o"></i>
-        </a>
-        <div className="dropdown-menu dropdown-menu-right"><div className="sharing-widget" data-clipboard="https://cdn1.pgimgs.com/1558598691/sf2-search/bundles/guruweblayout/vendor/clipboard.js/clipboard-2.0.0.min.js">
-          <h5>Share this property</h5>
-          <div className="row"><div className="col-xs-6"><a data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="http://www.facebook.com/dialog/send?app_id=289605188686&amp;link=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" title="Click here to share on Messenger" className="btn btn-facebook btn-block pgicon pgicon-messenger listing btn-facebook-share btn-facebook-messenger-js">Messenger</a></div><div className="col-xs-6"><a data-toggle="modal" data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="#shareListingEmail" data-target="#shareListingEmail" title="Share with your friends over email" className="btn btn-gold btn-block pgicon pgicon-mail-o sharing-widget-js-email">Email</a></div><div className="col-xs-6"><a data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" title="Click here to share on Facebook" className="btn btn-facebook btn-block pgicon pgicon-facebook listing btn-facebook-share">Facebook</a></div><div className="col-xs-6 visible-xs-block visible-sm-block"><a data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="https://api.whatsapp.com/send?text=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" title="Click here to share on Whatsapp" className="btn btn-whatsapp btn-block pgicon pgicon-whatsapp listing">Whatsapp</a></div><div className="col-xs-6"><a data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="https://www.twitter.com/share?url=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" title="Click here to share on Twitter" className="btn btn-twitter btn-block pgicon pgicon-twitter listing">Twitter</a></div><div className="col-xs-6"><a data-toggle="modal" data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="/sf2-search/form/share/listing/sms?itemId=21517387&amp;url=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F21517387" data-target="#shareListingSMS" title="Share with your friends over SMS" className="btn btn-main btn-block pgicon pgicon-comment sharing-widget-js-sms" rel="nofollow">SMS</a></div><div className="col-xs-6 col-xs-12 col-md-6"><a data-raw-url="https://www.propertyguru.com.sg/listing/21517387" href="#copylink" title="Copy Link into memory" className="btn btn-main btn-block pgicon pgicon-link sharing-widget-js-link listing" rel="nofollow">Copy Link</a></div></div>
-        </div>
-        </div>
-      </div>
+export default ({ id }) => (
+  <div className="btns">
+    <a href={`http://www.facebook.com/dialog/send?app_id=289605188686&amp;link=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F${id}`} className="btn btn-facebook btn-facebook-share btn-facebook-messenger-js btn-square" title="Click here to share on Messenger"><i className="pgicon pgicon-messenger"></i></a>
 
-      <a href="#shortlist" className="btn btn-main btn-shortlist btn-square listing-detail-header-bar-save" data-action-del="/shortlist/delete/21517387" data-action-add="/shortlist/add/21517387" data-listing-id="21517387" title="Shortlist">
-        <span className="add"><i className="pgicon pgicon-heart-o"></i></span>
-        <span className="del"><i className="pgicon pgicon-heart"></i></span>
-      </a>
-      <a href="#contact-agent" className="btn btn-primary listing-detail-header-bar-contact">Contact</a>
-    </div>
-  );
+    <a href={`https://api.whatsapp.com/send?text=https%3A%2F%2Fwww.propertyguru.com.sg%2Flisting%2F${id}`} className="btn btn-whatsapp btn-square" title="Click here to share on Whatsapp"><i className="pgicon pgicon-whatsapp"></i></a>
+  </div>
+);
