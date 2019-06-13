@@ -27,7 +27,7 @@ class PropertyDetailPage extends PureComponent {
 
     return (<Fragment>{ !property ? <DetailLoader /> : <div className="contents contents-listing-detail">
       <div className="listing-detail-header-bar container clearfix">
-        <Title>{property.localizedHeadline}</Title>
+        <Title>{property.localizedTitle}</Title>
         <div className="additional-info">
           <Badge>{property.property.typeText}</Badge>
           <LeadsButton id={property.id} />
@@ -43,8 +43,8 @@ class PropertyDetailPage extends PureComponent {
           <div className="columned-content">
             <div className="columned-content-row">
               <section className="main-content listing-detail listing-detail-body">
-                <PriceWidget price={property.price} location={property.location} title={property.localizedTitle} description={property.localizedDescription} sizes={property.sizes} date={property.dates} />
-                <PropertyDetail typeCode={property.typeCode} property={property.property} pricePerArea={property.pricePerArea} id={property.id} agent={property.agent} date={property.dates} propertyUnit={property.propertyUnit} />
+                <PriceWidget price={property.price} location={property.location} title={property.localizedTitle}  sizes={property.sizes} date={property.dates} />
+                <PropertyDetail typeCode={property.typeCode} property={property.property} pricePerArea={property.pricePerArea} description={property.localizedDescription} id={property.id} agent={property.agent} date={property.dates} propertyUnit={property.propertyUnit} />
                 <PropertyDetailFacilities amenities={property.property.amenities} />
                 <PropertyDetailProjectInfo title={property.localizedTitle} property={property.property} />
               </section>

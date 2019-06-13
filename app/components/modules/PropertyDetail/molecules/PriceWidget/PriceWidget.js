@@ -50,9 +50,6 @@ export default ({title, desctiption, price, sizes, location, date}) => (
                     <span itemProp="addressLocality">{location.districtText}</span>
                     ({location.districtCode})
                     </div>
-                  <div className="listing-areainsider" data-area="Tanglin">
-                    <a href="/areainsider/tanglin" target="_blank">Discover more about Tanglin</a>
-                  </div>
                 </div>
               </div>
               <a className="listing-map-link" href="#map">

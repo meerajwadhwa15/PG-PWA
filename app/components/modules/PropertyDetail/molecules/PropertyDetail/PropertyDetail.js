@@ -1,4 +1,4 @@
-export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit}) => (
+export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit, description}) => (
     <div id="details">
       <div className="section-content">
         <div className="listing-details-primary">
@@ -69,13 +69,13 @@ export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Availability</div>
-                <div className="value-block" itemProp="value">{new Date(date.available.date).getTime() <= new Date().getTime() ? 'Ready to Move': date.available.date}</div>
+                <div className="value-block" itemProp="value">{date.available? new Date(date.available.date).getTime() <= new Date().getTime() ? 'Ready to Move': date.available.date: null}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Listed on</div>
-                <div className="value-block" itemProp="value">{date.lastPosted.date}</div>
+                <div className="value-block" itemProp="value">{date.lastPosted? date.lastPosted.date: null}</div>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit
 
         <div className="listing-details-text compacted" itemProp="description">
           <h4>Description</h4>
-          <h5>{propertyUnit.description}</h5>
+          {description}
 
           Please call or what’s app {agent.name} at {agent.mobilePretty} for a private viewing today.
 

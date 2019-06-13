@@ -18,8 +18,8 @@ async function Fetch({ type, url, data, params }) {
   return res.data;
 }
 
-const listingDomain = 'http://listingsearch-sg.staging.guruestate.com/v1/listings';
-const autoCompleteDomain = 'https://api.staging.propertyguru.com:443/v1/autocomplete';
+const listingDomain = 'http://listingsearch-sg.guruestate.com/v1/listings';
+const autoCompleteDomain = 'https://api.propertyguru.com:443/v1/autocomplete';
 
 app.prepare().then(() => {
   const server = express()
