@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
         <Head>
           <link href="/static/styles.css" type="text/css" rel="stylesheet" />
           <link rel="manifest" href="/static/manifest.json" />
+          <link rel="stylesheet" href="https://unpkg.com/react-bootstrap-typeahead/css/Typeahead.css"></link>
           <script type="module" dangerouslySetInnerHTML={MyDocument.generateServiceScript()}>
           </script>
         </Head>

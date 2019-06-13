@@ -12,22 +12,30 @@ class TypeFilter extends PureComponent {
 
     toggleDropdown() {
         this.setState({
-            showDropdown: true
+            showDropdown: !this.state.showDropdown
         });
     }
 
     updateSelectedValue(e) {
+        const val = e.currentTarget.innerText;
         this.setState({
             showDropdown: false,
-            selectedValue: e.currentTarget.innerText,
+            selectedValue: val,
         });
+
+        if(this.props.updateFilter) {
+            this.props.updateFilter({
+                key: 'isting_type',
+                value: val.toLowerCase(),
+            });
+        }
     }
 
     render() {
         const { showDropdown, selectedValue } = this.state;
-        return (<div className="js-form-group btn-group param-listing_type btn-group-expand-right js-has-value">
+        return (<div>
             <Button type="button" onClick={this.toggleDropdown.bind(this)} className="btn btn-default-inverted dropdown-toggle" title={selectedValue} data-toggle="dropdown">
-                <span className="btn-label">Looking For</span>
+                <span className="btn-label hide">Looking For</span>
                 <span className="btn-title">{selectedValue}</span>
             </Button>
 

@@ -8,7 +8,7 @@ export function* fetchPropertyDetail({params}) {
   try {
     // ${params.listingId}
      const data = yield call(Fetch, {
-       url: `${PROPERTY_DETAIL_API}/21834366?region=sg`
+       url: `${PROPERTY_DETAIL_API}/21834366?region=sg&id=21834366`
      });
      yield put(getPropertyDetailSuccess(data));
   } catch (e) {

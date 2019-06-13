@@ -198,11 +198,11 @@ const Header = () => (
                     <div className="header-wobg">
                         <div className="container">
                             <ol className="breadcrumb">
-                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                    <a href="/" itemprop="url"><span itemprop="title">Home</span></a>
+                                <li itemScope="" itemType="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="/" itemProp="url"><span itemProp="title">Home</span></a>
                                 </li>
-                                <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                                    <a href="https://www.propertyguru.com.sg/property-for-rent?market=residential" itemprop="url"><span itemprop="title">Find Property</span></a>
+                                <li itemScope="" itemType="http://data-vocabulary.org/Breadcrumb">
+                                    <a href="https://www.propertyguru.com.sg/property-for-rent?market=residential" itemProp="url"><span itemProp="title">Find Property</span></a>
                                 </li>
                             </ol>
                             <nav className="users-tools">
