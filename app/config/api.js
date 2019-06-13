@@ -1,4 +1,4 @@
-const listingDomain = 'http://listingsearch-sg.staging.guruestate.com/v1';
+const listingDomain = 'http://10.41.100.142:9000/v1';
 
 //const listingDomain = 'https://api.staging.propertyguru.com:443/v1';
 
