@@ -1,10 +1,27 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-workbox.router.registerRoute(/.(?:googleapis|gstatic)\.com.$/, workbox.strategies.staleWhileRevalidate(
-  {
-    cacheName: 'google-fonts'
-  }
-));
+workbox.routing.registerRoute(
+  new RegExp('(?:listingsearch)\.com.$'),
+  new workbox.strategies.NetworkFirst()
+);
+
+workbox.routing.registerRoute(
+  new RegExp('(?:googleapis|gstatic)\.com.$'),
+  new workbox.strategies.StaleWhileRevalidate(
+    {
+      cacheName: 'google-fonts'
+    }
+  )
+);
+
+self.addEventListener('install', function (event) {
+  console.log('[Service Worker] Installing Service Worker ...', event);
+});
+
+self.addEventListener('activate', function (event) {
+  console.log('[Service Worker] Activating Service Worker ....', event);
+  return self.clients.claim();
+});
 
 workbox.precaching.precacheAndRoute([
   {
@@ -41,7 +58,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "service-worker-base.js",
-    "revision": "f8de3f7b3b63cb4168017817f04bfbd0"
+    "revision": "9208c40c45701a1c87469af72b3be854"
   },
   {
     "url": "styles.css",

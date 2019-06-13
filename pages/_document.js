@@ -29,8 +29,15 @@ export default class MyDocument extends Document {
 
   static generateServiceScript() {
     return {
-      __html: "if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('static/service-worker.js') }) }"
-    }
+      __html: `
+      import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/4.0.0/workbox-window.prod.mjs';
+      
+      if ('serviceWorker' in navigator) {
+        const wb = new Workbox('/static/service-worker.js'); 
+               
+        wb.register();
+       }
+    `}
   }
 
   render() {
@@ -39,7 +46,7 @@ export default class MyDocument extends Document {
         <Head>
           <link href="/static/styles.css" type="text/css" rel="stylesheet" ></link>
           <link rel="manifest" href="/static/manifest.json"></link>
-          <script dangerouslySetInnerHTML={MyDocument.generateServiceScript()}>
+          <script type="module" dangerouslySetInnerHTML={MyDocument.generateServiceScript()}>
           </script>
         </Head>
         <body className="layout-web listing lang-en app-sg env-prod  is-new-brand not-authenticated scroll-past-header">
