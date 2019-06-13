@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
     }
   }
 
-  generateServiceScript() {
+  static generateServiceScript() {
     return {
       __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('static/service-worker.js') }) }`
     }
