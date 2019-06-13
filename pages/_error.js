@@ -2,12 +2,14 @@ import React from 'react'
 import CommonTemplate from '../app/components/templates/Common';
 
 export default class Error extends React.Component {
-  static getInitialProps({ res, err }) {
+  static getInitialProps({ res, err, pathname }) {
     const statusCode = res ? res.statusCode : err ? err.statusCode : null;
-    return { statusCode }
+
+    return { statusCode, err, pathname }
   }
 
   render() {
+    console.log(this.props);
     return (
       <CommonTemplate>
         <div className="container">

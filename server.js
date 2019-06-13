@@ -1,5 +1,6 @@
 const express = require('express')
 const next = require('next')
+const { parse } = require('url')
 const bodyParser = require('body-parser')
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
@@ -48,12 +49,25 @@ app.prepare().then(() => {
   server.use(express.static('static'))
 
   server.get('*', (req, res) => {
+
+    const parsedUrl = parse(req.url, true)
+    const { pathname, query } = parsedUrl
+
     try {
-      return handle(req, res)
+      if (pathname.match(/^\/listing\/\d/)) {
+        try {
+          let sp = pathname.split('/');
+          app.render(req, res, '/listing', {...query, id: sp[2] })
+        } catch(e) {
+        }
+      } else {
+        handle(req, res, parsedUrl)
+      }
     } catch (e) {
       console.log(e);
     }
   })
+
   server.listen(port, err => {
     if (err) throw err
     console.log(`🚀 Ready on http://localhost:${port} 🚀`)

@@ -6,6 +6,7 @@ class PropertyListingPage extends Component {
         return {query};
     }
     render() {
+        console.log('Here in listing');
         return (
           <PropertyDetailTemplate {...this.props} />
         )

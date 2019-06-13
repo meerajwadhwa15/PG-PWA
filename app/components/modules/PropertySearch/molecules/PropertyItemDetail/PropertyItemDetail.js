@@ -6,7 +6,7 @@ export default ({ title, id, location, price, bedrooms, bathrooms, floorArea, fl
     <div className="header-wrapper">
       <div className="header-container">
         <h3 className="ellipsis" itemProp="name">
-          <Anchor as={`${ListingDetailPage}/${id}?id=${id}`} href={{ pathname: ListingDetailPage, query: { id: id } }} title={title} itemProp="url">{title}</Anchor>
+          <Anchor as={`${ListingDetailPage}/${id}`} href={{ pathname: ListingDetailPage, query: { id: id } }} title={title} itemProp="url">{title}</Anchor>
         </h3>
         <p className="listing-location ellipsis" itemScope="" itemType="https://schema.org/PostalAddress"><span itemProp="streetAddress">{location.fullAddress}</span></p>
       </div>

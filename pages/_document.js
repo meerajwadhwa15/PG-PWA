@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
 
   static generateServiceScript() {
     return {
-      __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('service-worker.js') }) }`
+      __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js') }) }`
     }
   }
 

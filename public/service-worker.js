@@ -1,7 +1,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 workbox.routing.registerRoute(
-  'http://10.41.100.142:9000',
+  'http://localhost:3000',
   new workbox.strategies.NetworkFirst()
 );
 
