@@ -1,4 +1,4 @@
-export default () => (
+export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit}) => (
     <div id="details">
       <div className="section-content">
         <div className="listing-details-primary">
@@ -7,13 +7,13 @@ export default () => (
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Type</div>
-                <div className="value-block" itemProp="value">Apartment For Rent</div>
+                <div className="value-block" itemProp="value">Apartment {typeCode === 'RENT'? 'For Rent': 'For Sale'}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Tenure</div>
-                <div className="value-block" itemProp="value">Freehold</div>
+                <div className="value-block" itemProp="value">{property.tenureText}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
@@ -25,7 +25,7 @@ export default () => (
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Developer</div>
-                <div className="value-block" itemProp="value">Tan Chwee Boon Pte Ltd</div>
+                <div className="value-block" itemProp="value">{property.developer}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
@@ -37,7 +37,9 @@ export default () => (
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">PSF</div>
-                <div className="value-block" itemProp="value">S$ 2.93 psf</div>
+                <div className="value-block" itemProp="value">{pricePerArea.floorArea && pricePerArea.floorArea.length && pricePerArea.floorArea[0].text && pricePerArea.floorArea[0].text}
+                {pricePerArea.landArea && pricePerArea.landArea.length && pricePerArea.landArea[0].text && pricePerArea.landArea[0].text}
+                </div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
@@ -49,7 +51,7 @@ export default () => (
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">TOP</div>
-                <div className="value-block" itemProp="value">1980</div>
+                <div className="value-block" itemProp="value">{property.topYear}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
@@ -61,19 +63,19 @@ export default () => (
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Listing ID</div>
-                <div className="value-block" itemProp="value">21517387</div>
+                <div className="value-block" itemProp="value">{id}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Availability</div>
-                <div className="value-block" itemProp="value">Ready to move</div>
+                <div className="value-block" itemProp="value">{new Date(date.available.date).getTime() <= new Date().getTime() ? 'Ready to Move': date.available.date}</div>
               </div>
             </div>
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Listed on</div>
-                <div className="value-block" itemProp="value">31 minutes ago</div>
+                <div className="value-block" itemProp="value">{date.lastPosted.date}</div>
               </div>
             </div>
           </div>
@@ -82,25 +84,10 @@ export default () => (
 
         <div className="listing-details-text compacted" itemProp="description">
           <h4>Description</h4>
-          <h5>Stunning View. Living in the heart of the City.</h5>
-          The Draycott Penthouse <br />
-          <br />
-          Panoramic View of the city <br />
-          Facing Greenery - Fantastic View <br />
-          6 bedroom. + maid’s room <br />
-          Bedroom with all ensuites<br />
-          Very good size terrace/balcony <br />
-          Totally renovated and well maintained <br />
-          Quality appliance and sound system <br />
-          Available immediately <br />
-          Loving in the heart of the city <br />
-          <br />
-          Minutes walk to Orchard MRT, Tanglin and Amercian Club <br />
-          Amenities, grocery stores, banks, cafes and restaurants, etc... <br />
-          <br />
-          Please call or what’s app Penny  at &nbsp;<a href="#shownumber" className="js-agent-phone-number"><span className="agent-phone-number masked no-print" data-mobile="+6598411177">+659841....</span><span className="agent-phone-number agent-phone-number-original visible-print" data-mobile="+6598411177">+6598411177</span></a>&nbsp;
-          for a private viewing today.
-                                      <a href="#show-more" className="show-more" title="Click to view the rest of the details">Read More</a>
+          <h5>{propertyUnit.description}</h5>
+
+          Please call or what’s app {agent.name} at {agent.mobilePretty} for a private viewing today.
+
         </div>
 
       </div>

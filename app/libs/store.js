@@ -20,7 +20,7 @@ export default (options) => {
     );
 
     // 3: Run your sagas:
-    for(let i in Saga) {
+    for(let i = 0; i < Saga.length; i++) {
       sagaMiddleware.run(Saga[i]);
     }
 

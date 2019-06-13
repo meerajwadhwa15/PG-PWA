@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from "react-redux";
 import Title from './../../../../atoms/Title';
 import Badge from './../../../../atoms/Badge';
@@ -11,14 +11,27 @@ import PropertyDetailTags from './../../molecules/PropertyDetailTags';
 import PropertyDetailFacilities from './../../molecules/PropertyDetailFacilities';
 import PropertyDetailProjectInfo from './../../molecules/PropertyDetailProjectInfo';
 import Contact from './../../../../organisams/Contact';
-
+import { getPropertyDetail } from './Actions';
+import DetailLoader from './../../../../molecules/DetailLoader';
 class PropertyDetailPage extends PureComponent {
+
+  componentWillMount() {
+    const {propertDetailFetchAction, query} = this.props;
+    if(query && query.id) {
+      propertDetailFetchAction({
+        listingId: query.id,
+      });
+    }
+  }
+
   render() {
-    return (<div className="contents contents-listing-detail">
+    const { property } = this.props;
+
+    return (<Fragment>{ !property ? <DetailLoader /> : <div className="contents contents-listing-detail">
       <div className="listing-detail-header-bar container clearfix">
-        <Title>The Draycott</Title>
+        <Title>{property.localizedHeadline}</Title>
         <div className="additional-info">
-          <Badge>APARTMENT</Badge>
+          <Badge>{property.property.typeText}</Badge>
           <LeadsButton />
         </div>
       </div>
@@ -32,12 +45,10 @@ class PropertyDetailPage extends PureComponent {
           <div className="columned-content">
             <div className="columned-content-row">
               <section className="main-content listing-detail listing-detail-body">
-                <PriceWidget />
-                <PropertyDetail />
-                <PropertyDetailTags />
+                <PriceWidget price={property.price} location={property.location} title={property.localizedTitle} description={property.localizedDescription} sizes={property.sizes} date={property.dates} />
+                <PropertyDetail typeCode={property.typeCode} property={property.property} pricePerArea={property.pricePerArea} id={property.id} agent={property.agent} date={property.dates} propertyUnit={property.propertyUnit} />
                 <PropertyDetailFacilities />
-                <PropertyDetailFacilities />
-                <PropertyDetailProjectInfo />
+                <PropertyDetailProjectInfo title={property.localizedTitle} property={property.property} />
               </section>
               <aside role="right-content" className="right-content sticky-container-parent">
                 <Contact />
@@ -46,16 +57,16 @@ class PropertyDetailPage extends PureComponent {
           </div>
         </div>
       </div>
-    </div>);
+    </div>}</Fragment>);
   }
 }
 
 const mapStateToProps = (state) => ({
-  //listings: state.ListingReducers.listings
+  property: state.PropertyDetailReducers.listing
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  //listingSearchAction: () => { dispatch(getListings()) }
+  propertDetailFetchAction: (params) => { dispatch(getPropertyDetail(params)) }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PropertyDetailPage);

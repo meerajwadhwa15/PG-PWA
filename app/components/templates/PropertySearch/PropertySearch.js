@@ -2,14 +2,14 @@ import CommonLayout from './../Common';
 import PropertySearch from './../../organisams/PropertySearch';
 import Listings from '../../modules/PropertySearch/organisams/Listings';
 
-const SearchTemplate = ({ listingSearchAction }) => (
-  <CommonLayout>
+const SearchTemplate = (props) => (
+  <CommonLayout {...props}>
     <section>
-      <PropertySearch />
+      <PropertySearch {...props} />
       <div className="container">
         <div className="contents">
           <div className="columned-content">
-            <Listings />
+            <Listings {...props} />
           </div>
         </div>
       </div>

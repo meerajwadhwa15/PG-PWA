@@ -13,6 +13,8 @@ app.prepare().then(() => {
     const parsedUrl = parse(req.url, true);
     const { pathname, query } = parsedUrl;
 
+    console.log(query);
+
     if (pathname === '/a') {
       app.render(req, res, '/b', query);
     } else if (pathname === '/b') {

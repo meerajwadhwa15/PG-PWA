@@ -1,10 +1,10 @@
 import { Fragment } from 'react';
 
-export default () => (
+export default ({title, property}) => (
   <Fragment>
     <h4>Project Info</h4>
     <div id="condo-profile" className="collapse-xs collapse-sm in">
-      <h5>The Draycott</h5>
+      <h5>{title}</h5>
       <div className="section-content">
         <div className="box condo-profile-box">
           <div className="list-group">
@@ -18,40 +18,31 @@ export default () => (
                     <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">Type</div>
-                        <div className="value-block">Apartment</div>
+                        <div className="value-block">{property.typeText}</div>
                       </div>
                     </div>
 
                     <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">TOP</div>
-                        <div className="value-block">1980</div>
+                        <div className="value-block">{property.topYear}</div>
                       </div>
                     </div>
 
                     <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">Tenure</div>
-                        <div className="value-block">Freehold</div>
+                        <div className="value-block">{property.tenureText}</div>
                       </div>
                     </div>
 
                     <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">Total Unit(s)</div>
-                        <div className="value-block">132</div>
+                        <div className="value-block">{property.totalUnits}</div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div className="condo-widget__project-link">
-                <div className="condo-widget__project-link__item">
-                  <a href="/project/the-draycott-513">
-                    The Draycott Project Details
-                            <i className="pgicon pgicon-arrow-right"></i>
-                  </a>
                 </div>
               </div>
             </div>
@@ -60,8 +51,5 @@ export default () => (
 
       </div>
     </div>
-    <ul className="listing-detail-text-seo">
-      <li><a href="/property-for-rent/at-the-draycott-513">View other listings in The Draycott</a></li>
-    </ul>
   </Fragment>
 );

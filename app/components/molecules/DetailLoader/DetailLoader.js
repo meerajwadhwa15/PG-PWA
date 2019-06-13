@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Styles from './ListLoader.style';
+import Styles from './DetailLoader.style';
 
 const DetailLoader =  ({className}) => (
   <div className={`wrapper ${className}`}>

@@ -1,5 +1,6 @@
 module.exports = {
     distDir: 'build',
+    useFileSystemPublicRoutes: false,
     pageExtensions: ['jsx', 'js'],
     exportPathMap: async function (defaultPathMap) {
       return {
