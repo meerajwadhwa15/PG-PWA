@@ -1,7 +1,7 @@
 import Header from '../../organisams/Header';
 import Footer from '../../organisams/Footer';
 
-const SearchTemplate = ({ children }) => (
+const CommonTemplate = ({ children }) => (
   <div id="wrapper-outer">
     <div id="wrapper">
       <div id="wrapper-inner">
@@ -13,4 +13,4 @@ const SearchTemplate = ({ children }) => (
   </div>
 );
 
-export default SearchTemplate;
+export default CommonTemplate;

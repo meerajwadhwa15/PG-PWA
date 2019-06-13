@@ -1,7 +1,7 @@
-import CommonTemplate from '../app/components/templates/Common';
+import HomeTemplate from '../app/components/templates/Home';
 
 export default () => {
   return (
-    <CommonTemplate />
+    <HomeTemplate />
   )
 }

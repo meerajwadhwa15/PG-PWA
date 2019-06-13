@@ -1,15 +1,17 @@
 import CommonLayout from './../Common';
 import PropertySearch from './../../organisams/PropertySearch';
-import Listings from '../../modules/PropertySearch/organisams/Listings';
 
-const SearchTemplate = ({ listingSearchAction }) => (
+const HomePageTemplate = ({ listingSearchAction }) => (
   <CommonLayout>
     <section>
-      <PropertySearch />
       <div className="container">
         <div className="contents">
           <div className="columned-content">
-            <Listings />
+            <div className="columned-content-row">
+              <section className="main-content">
+              <PropertySearch />
+              </section>
+            </div>
           </div>
         </div>
       </div>
@@ -18,4 +20,4 @@ const SearchTemplate = ({ listingSearchAction }) => (
 );
 
 
-export default SearchTemplate;
+export default HomePageTemplate;
