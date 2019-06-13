@@ -29,15 +29,8 @@ export default class MyDocument extends Document {
 
   static generateServiceScript() {
     return {
-      __html: `
-      import {Workbox} from 'https://storage.googleapis.com/workbox-cdn/releases/4.0.0/workbox-window.prod.mjs';
-      
-      if ('serviceWorker' in navigator) {
-        const wb = new Workbox('/static/service-worker.js'); 
-               
-        wb.register();
-       }
-    `}
+      __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('static/service-worker.js') }) }`
+    }
   }
 
   render() {
