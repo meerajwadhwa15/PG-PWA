@@ -4,7 +4,7 @@ import Styles from './DetailLoader.style';
 const DetailLoader =  ({className}) => (
   <div className={`wrapper ${className}`}>
    <div className="wrapper-cell">
-        <div class="gallery">
+        <div className="gallery">
           <div className="image"></div>
           <div className="image"></div>
           <div className="image"></div>

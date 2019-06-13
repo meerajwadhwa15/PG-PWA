@@ -18,7 +18,7 @@ const PropertyDetailFacilities = ({ amenities }) => (
       </div>
       <ul>
         {amenities && amenities.map((amenity) => (
-          <li itemProp="amenityFeature" itemScope="" itemType="http://schema.org/LocationFeatureSpecification"><i className="pgicon pgicon-star-o"></i>
+          <li key={amenity.code} itemProp="amenityFeature" itemScope="" itemType="http://schema.org/LocationFeatureSpecification"><i className="pgicon pgicon-star-o"></i>
           <span itemProp="name">{amenity.description}</span>
           <meta itemProp="value" content="True" />
         </li>

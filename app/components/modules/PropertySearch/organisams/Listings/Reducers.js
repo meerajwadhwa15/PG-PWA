@@ -9,17 +9,20 @@ export default (state = {}, action = {}) => {
         data.push(Model(action.data[i]));
       }
       return {
-        listings: data || [], ...state
+        ...state,
+        listings: data || [],
       };
       break;
     case GET_LISTINGS_DETAIL_SUCCESS:
       return {
-        listingsDetail: action.data, ...state
+        ...state,
+        listingsDetail: action.data,
       };
       break;
     case GET_META_SUCCESS:
       return {
-        listingsMetadata: action.data, ...state
+        ...state,
+        listingsMetadata: action.data,
       };
       break;
     default:

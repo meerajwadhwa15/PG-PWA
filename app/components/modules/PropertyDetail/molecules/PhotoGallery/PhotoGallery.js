@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 const ImageItem = ({ item }) => (
-    <div className="item item-img img item-horiz">
+    <div key={`image-${item.id}`} className="item item-img img item-horiz">
         <span className="gallery-item image" data-id="101650661">
             <img src={item.V550} className="" alt="The Draycott #101650661" itemProp="image" />
         </span>
@@ -9,7 +9,7 @@ const ImageItem = ({ item }) => (
 );
 
 const VideoItem = ({ item }) => (
-    <div className="item item-img img item-horiz">
+    <div key={`video-${item.id}`} className="item item-img img item-horiz">
         <span className="gallery-item image" data-id="101650661">
             {item.convertedVideoUrls && item.convertedVideoUrls.length ?
             <video poster={item.thumb} controls>
@@ -53,23 +53,23 @@ class PhotoGallery extends PureComponent {
                     <div className="carousel-major">
                         <div className="carousel-inner infinite" role="listbox">
                             {media.listing && media.listing.map((item) => (
-                                <ImageItem item={item} />
+                                <ImageItem key={item.id} item={item} />
                             ))}
 
                             {media.property && media.property.map((item) => (
-                                <ImageItem item={item} />
+                                <ImageItem key={item.id} item={item} />
                             ))}
 
                             {media.listingFloorPlans && media.listingFloorPlans.map((item) => (
-                                <ImageItem item={item} />
+                                <ImageItem key={item.id} item={item} />
                             ))}
 
                             {media.listingVideos && media.listingVideos.map((item) => (
-                                <VideoItem item={item} />
+                                <VideoItem key={item.id} item={item} />
                             ))}
 
                             {media.listingVirtualTours && media.listingVirtualTours.map((item) => (
-                                <VideoItem item={item} />
+                                <VideoItem key={item.id} item={item} />
                             ))}
                         </div>
 

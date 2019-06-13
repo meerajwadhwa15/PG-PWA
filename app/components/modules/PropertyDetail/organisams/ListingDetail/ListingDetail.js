@@ -25,6 +25,8 @@ class PropertyDetailPage extends PureComponent {
   render() {
     const { property } = this.props;
 
+    console.log(property? property.id: 'null', 'property');
+
     return (<Fragment>{ !property ? <DetailLoader /> : <div className="contents contents-listing-detail">
       <div className="listing-detail-header-bar container clearfix">
         <Title>{property.localizedTitle}</Title>
