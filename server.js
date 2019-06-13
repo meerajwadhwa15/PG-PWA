@@ -52,7 +52,7 @@ app.prepare().then(() => {
 
     const parsedUrl = parse(req.url, true)
     const { pathname, query } = parsedUrl
-
+console.log(pathname);
     try {
       if (pathname.match(/^\/listing\/\d/)) {
         try {
@@ -60,6 +60,10 @@ app.prepare().then(() => {
           app.render(req, res, '/listing', {...query, id: sp[2] })
         } catch(e) {
         }
+      } else if(pathname === '/property-for-sale') {
+        app.render(req, res, '/listings', {...query, listing_type: 'sale' })
+      } else if(pathname === '/property-for-rent') {
+        app.render(req, res, '/listings', {...query, listing_type: 'rent' })
       } else {
         handle(req, res, parsedUrl)
       }
