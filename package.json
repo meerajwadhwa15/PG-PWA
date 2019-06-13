@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "compression": "^1.7.4",
-    "redux-devtools-extension": "^2.13.8"
+    "redux-devtools-extension": "^2.13.8",
+    "workbox-cli": "^4.3.1"
   }
 }
