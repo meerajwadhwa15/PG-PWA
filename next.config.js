@@ -1,4 +1,6 @@
-module.exports = {
+const withOffline = require('next-offline')
+
+module.exports = withOffline({
     distDir: 'build',
     pageExtensions: ['jsx', 'js'],
     exportPathMap: async function (defaultPathMap) {
@@ -9,4 +11,4 @@ module.exports = {
         '/listing/:id': { page: '/listing', query: {  } },
       };
     }
-  };
+  });

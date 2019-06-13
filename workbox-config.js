@@ -6,6 +6,6 @@ module.exports = {
   "globIgnores": [
     'service-worker.js',
   ],
-  "swSrc": "./static/service-worker-base.js",
-  "swDest": "./static/service-worker.js",
+  "swSrc": "./public/service-worker-base.js",
+  "swDest": "./public/service-worker.js",
 };

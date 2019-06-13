@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
 
   static generateServiceScript() {
     return {
-      __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('static/service-worker.js') }) }`
+      __html: `if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('service-worker.js') }) }`
     }
   }
 
@@ -37,8 +37,8 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-          <link href="/static/styles.css" type="text/css" rel="stylesheet" />
-          <link rel="manifest" href="/static/manifest.json" />
+          <link href="/styles.css" type="text/css" rel="stylesheet" />
+          <link rel="manifest" href="/manifest.json" />
           <script type="module" dangerouslySetInnerHTML={MyDocument.generateServiceScript()}>
           </script>
         </Head>

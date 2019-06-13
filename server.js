@@ -9,6 +9,9 @@ app.prepare().then(() => {
   const server = express()
   server.use(bodyParser.urlencoded({ extended: true }))
   server.use(bodyParser.json())
+  server.use(express.static('public'))
+  server.use(express.static('static'))
+
   server.get('*', (req, res) => {
     try {
     return handle(req, res)
