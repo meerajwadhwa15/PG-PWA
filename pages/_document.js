@@ -37,6 +37,7 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+            <meta name="theme-color" content="#E03C31"/>
           <link href="/styles.css" type="text/css" rel="stylesheet" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="stylesheet" href="https://unpkg.com/react-bootstrap-typeahead/css/Typeahead.css"></link>
