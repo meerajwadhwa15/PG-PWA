@@ -7,6 +7,8 @@ import Typeahead from './../../molecules/Typeahead';
 import Bedroom from './../../molecules/Bedroom';
 import Button from './../../../../atoms/Button';
 import { getSuggestion } from './Actions';
+import styled from 'styled-components';
+import Styles from './Filter.style';
 
 class Filter extends PureComponent {
 
@@ -25,7 +27,7 @@ class Filter extends PureComponent {
     }
 
     render() {
-        return (<form className="searchbox hasExpanded property-search is-old-brand-search searchbox-singleline clearfix searchbox-sticky" role="search" id="searchbox-n1">
+        return (<form className={`searchbox hasExpanded property-search is-old-brand-search searchbox-singleline clearfix searchbox-sticky ${this.props.className}`} role="search" id="searchbox-n1">
             <fieldset className="container">
                 <h1 className="title-big searchbox-explore">Singapore Property Search</h1>
                 <div className="sticky-container">
@@ -60,4 +62,4 @@ const mapStateToProps = (state) => ({
     fetchSuggestionAction: (params) => { dispatch(getSuggestion(params)) }
   });
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+  export default connect(mapStateToProps, mapDispatchToProps)(styled(Filter)(Styles));

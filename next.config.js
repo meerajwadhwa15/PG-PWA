@@ -6,8 +6,8 @@ module.exports = withOffline({
     exportPathMap: async function (defaultPathMap) {
       return {
         '/': { page: '/' },
-        '/property-for-rent': { page: '/listings', query: { isSale: false } },
-        '/property-for-sale': { page: '/listings', query: { isSale: true } },
+        '/property-for-rent': { page: '/listings', query: { listing_type: 'rent' } },
+        '/property-for-sale': { page: '/listings', query: { listing_type: 'sale' } },
         '/listing/:id': { page: '/listing', query: {  } },
       };
     }

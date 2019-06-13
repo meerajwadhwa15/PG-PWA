@@ -7,12 +7,17 @@ export default css`
   background: #fff;
   width: 360px;
   height: 640px;
-  display: flex;
   flex-direction: column;
 }
 
+.gallery {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 .wrapper-cell {
-   display: flex;
    margin-bottom: 30px;
 }
 
@@ -39,8 +44,8 @@ export default css`
 }
 
 .image {
-  height: 60px;
-  width: 30%;
+  height: 300px;
+  width: 24%;
   animation-duration: 1.25s;
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
@@ -49,17 +54,16 @@ export default css`
     background: #F6F6F6;
     background: linear-gradient(to right, #F6F6F6 8%, #F0F0F0 18%, #F6F6F6 33%);
     background-size: 800px 104px;
-    height: 96px;
     position: relative;
 }
 
 .text {
-  margin-left: 20px
+  margin-top: 80px
 }
 
 .text-line {
   height: 10px;
-  width: 230px;
+  width: 50%;
   margin: 4px 0;
   animation-duration: 1.25s;
     animation-fill-mode: forwards;
@@ -71,6 +75,14 @@ export default css`
     background-size: 800px 104px;
     height: 20px;
     position: relative;
+}
+
+.long-line {
+    width: 80%;
+}
+
+.medium-line {
+    width: 65%;
 }
 `;
 

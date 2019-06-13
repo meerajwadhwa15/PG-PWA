@@ -54,12 +54,13 @@ export default css`
 }
 
 .text {
-  margin-left: 20px
+  margin-left: 20px;
+  width: 70%;
 }
 
 .text-line {
   height: 10px;
-  width: 230px;
+  width: 100%;
   margin: 4px 0;
   animation-duration: 1.25s;
     animation-fill-mode: forwards;
