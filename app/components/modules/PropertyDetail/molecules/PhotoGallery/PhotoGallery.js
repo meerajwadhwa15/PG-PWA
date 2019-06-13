@@ -24,7 +24,31 @@ const VideoItem = ({ item }) => (
 class PhotoGallery extends PureComponent {
     render() {
         const { media } = this.props;
-        //let allMedia = [...media.listing]
+
+        let mediaCount = 0;
+        let floorPlanCount = 0;
+        let virtualTourCount = 0;
+        let videoCount = 0;
+        if(media.listing) {
+            mediaCount += media.listing.length;
+        }
+
+        if(media.property) {
+            mediaCount += media.property.length;
+        }
+
+        if(media.listingFloorPlans) {
+            floorPlanCount += media.listingFloorPlans.length;
+        }
+
+        if(media.listingVirtualTours) {
+            virtualTourCount += media.listingVirtualTours.length;
+        }
+
+        if(media.listingVideos) {
+            virtualTourCount += media.listingVideos.length;
+        }
+
         return (<div id="photosvideos" className="photosvideos-gallery listing-detail-block infinite has-enquiry-form">
             <div id="photos" className="section-content">
                 <div id="carousel-photos" className="carousel carousel-media media-gallery-widget not-in-fullscreen">
@@ -76,14 +100,21 @@ class PhotoGallery extends PureComponent {
                         <div className="carousel-media-count">
                             <span className="carousel-media-count-current">1</span>
                             <span>of</span>
-                            <span className="carousel-media-count-total">18</span>
+                            <span className="carousel-media-count-total">{mediaCount}</span>
                             <span className="vertical-bar">|</span>
                             <span className="carousel-media-caption"></span>
                         </div>
 
                         <div className="carousel-bottom-toolbar">
                             <div className="container">
-                                <div className="carousel-media-breakdown"><a href="#img" className="carousel-link-img">18 <i className="pgicon pgicon-photo"></i><em className="sr-only">Photos</em></a></div>
+                                <div className="carousel-media-breakdown">
+                                <a href="javascript: void(0)" className="carousel-link-img">{mediaCount} <i className="pgicon pgicon-photo"></i><em className="sr-only">Photos</em></a>
+
+                                {floorPlanCount? <a href="javascript: void(0)" className="carousel-link-floor">{floorPlanCount} <i className="pgicon pgicon-floorplan"></i><em className="sr-only">FloorPlans</em></a>: null}
+
+                                {virtualTourCount? <a href="javascript: void(0)" className="carousel-link-vt">{virtualTourCount} <i class="pgicon pgicon-street-view"></i><em className="sr-only">Virtual tours</em></a>: null}
+
+                                </div>
                             </div>
                         </div>
                     </div>
