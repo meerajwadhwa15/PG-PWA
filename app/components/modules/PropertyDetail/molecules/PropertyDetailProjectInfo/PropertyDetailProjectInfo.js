@@ -15,33 +15,33 @@ export default ({title, property}) => (
                 </a>
                 <div className="condo-widget__project-info col-xs-12 col-sm-6">
                   <div className="listing-details-primary">
-                    <div className="col-xs-12">
+                    {property.typeText ? <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">Type</div>
                         <div className="value-block">{property.typeText}</div>
                       </div>
-                    </div>
+                    </div>: null}
 
-                    <div className="col-xs-12">
+                    {property.topYear? <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">TOP</div>
                         <div className="value-block">{property.topYear}</div>
                       </div>
-                    </div>
+                    </div>: null}
 
-                    <div className="col-xs-12">
+                    {property.tenureText? <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">Tenure</div>
                         <div className="value-block">{property.tenureText}</div>
                       </div>
-                    </div>
+                    </div>: null}
 
-                    <div className="col-xs-12">
+                    {property.totalUnits? <div className="col-xs-12">
                       <div className="property-attr">
                         <div className="label-block">Total Unit(s)</div>
                         <div className="value-block">{property.totalUnits}</div>
                       </div>
-                    </div>
+                    </div> : null}
                   </div>
                 </div>
               </div>

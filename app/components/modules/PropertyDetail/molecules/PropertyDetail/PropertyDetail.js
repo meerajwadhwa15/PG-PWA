@@ -10,24 +10,24 @@ export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit
                 <div className="value-block" itemProp="value">Apartment {typeCode === 'RENT'? 'For Rent': 'For Sale'}</div>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-6">
+            {property.tenureText?<div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Tenure</div>
                 <div className="value-block" itemProp="value">{property.tenureText}</div>
               </div>
-            </div>
+            </div>: null}
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Floor size</div>
                 <div className="value-block" itemProp="value">5400 sqft</div>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-6">
+            {property.developer ? <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Developer</div>
                 <div className="value-block" itemProp="value">{property.developer}</div>
               </div>
-            </div>
+            </div>: null}
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr text-light-muted" itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Land size</div>
@@ -42,30 +42,30 @@ export default ({typeCode, property, pricePerArea, id, agent, date, propertyUnit
                 </div>
               </div>
             </div>
-            <div className="col-xs-12 col-sm-6">
+            {propertyUnit.furnishingText ? <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Furnishing</div>
-                <div className="value-block" itemProp="value">Partially Furnished</div>
+                <div className="value-block" itemProp="value">{propertyUnit.furnishingText}</div>
               </div>
-            </div>
-            <div className="col-xs-12 col-sm-6">
+            </div>: null}
+            {property.topYear ? <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">TOP</div>
                 <div className="value-block" itemProp="value">{property.topYear}</div>
               </div>
-            </div>
-            <div className="col-xs-12 col-sm-6">
+            </div>: null}
+            {propertyUnit.floorLevelText ? <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Floor Level</div>
-                <div className="value-block" itemProp="value">Penthouse</div>
+                <div className="value-block" itemProp="value">{propertyUnit.floorLevelText}</div>
               </div>
-            </div>
-            <div className="col-xs-12 col-sm-6">
+            </div>: null}
+            {id?<div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Listing ID</div>
                 <div className="value-block" itemProp="value">{id}</div>
               </div>
-            </div>
+            </div>: null}
             <div className="col-xs-12 col-sm-6">
               <div className="property-attr " itemProp="additionalProperty" itemScope="" itemType="http://schema.org/PropertyValue">
                 <div className="label-block" itemProp="name">Availability</div>
