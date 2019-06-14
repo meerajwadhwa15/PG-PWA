@@ -23,7 +23,7 @@ const Header = () => (
                             <span className="sr-only">Toggle navigation</span>
                             <i className="pgicon pgicon-menu"></i>
                         </Button>
-                        <a className="navbar-brand" href="/" title="PropertyGuru"><span>PropertyGuru</span></a>
+                        <Anchor className="navbar-brand" href="/" as="/" style={{background: 'url(/icons/icon-72x72.png)', 'background-repeat': 'no-repeat', 'background-size': 'contain'}} title="PropertyGuru"><span>PropertyGuru</span></Anchor>
                     </div>
                     <div className="navigation">
                         <div className="nav-container">
