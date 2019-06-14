@@ -20,7 +20,8 @@ export default css`
     }
 
     .price-filter {
-        width: 21% !important;
+        width: 100% !important;
+        margin-top: 10px;
     }
 }
 `;
