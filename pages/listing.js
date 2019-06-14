@@ -5,12 +5,15 @@ class PropertyListingPage extends Component {
     static getInitialProps({query}) {
         return {query};
     }
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
-        console.log('Here in listing');
         return (
           <PropertyDetailTemplate {...this.props} />
         )
     }
 }
-
 export default PropertyListingPage;

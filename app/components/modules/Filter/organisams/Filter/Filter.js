@@ -13,7 +13,9 @@ import Styles from './Filter.style';
 class Filter extends PureComponent {
 
     componentWillMount() {
-        this.state = this.props.query;
+        this.setState({
+            ...this.props.query
+        });
     }
 
     doSearch() {

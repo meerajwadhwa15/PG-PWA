@@ -112,7 +112,7 @@ class PhotoGallery extends PureComponent {
 
                                 {floorPlanCount? <a href="javascript: void(0)" className="carousel-link-floor">{floorPlanCount} <i className="pgicon pgicon-floorplan"></i><em className="sr-only">FloorPlans</em></a>: null}
 
-                                {virtualTourCount? <a href="javascript: void(0)" className="carousel-link-vt">{virtualTourCount} <i class="pgicon pgicon-street-view"></i><em className="sr-only">Virtual tours</em></a>: null}
+                                {virtualTourCount? <a href="javascript: void(0)" className="carousel-link-vt">{virtualTourCount} <i className="pgicon pgicon-street-view"></i><em className="sr-only">Virtual tours</em></a>: null}
 
                                 </div>
                             </div>
