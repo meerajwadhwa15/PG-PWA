@@ -12,13 +12,16 @@ class Listings extends PureComponent {
   }
 
   componentDidMount() {
-    var options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 1.0
-    };
-    var observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
-    observer.observe(document.querySelector('.loadMore'));
+    var loadMoreEle = document.querySelector('.loadMore');
+    if(loadMoreEle) {
+      var options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 1.0
+      };
+      var observer = new IntersectionObserver(this.handleIntersect.bind(this), options);
+      observer.observe();
+    }
   }
 
   handleIntersect(entries, observer) {
@@ -46,7 +49,7 @@ class Listings extends PureComponent {
               {!listings ? <ListLoader /> : listings.map((listing) => (
                 <PropertyItem key={listing.id} item={listing} />
               ))}
-              <div className="loadMore" style={{'text-align': 'center',
+              {listings && listings.length ? <div className="loadMore" style={{'text-align': 'center',
     'margin': '30px 0 0 0'}}>
                 <svg width="120" height="30" viewBox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="red">
                   <circle cx="15" cy="15" r="15">
@@ -80,7 +83,7 @@ class Listings extends PureComponent {
                       repeatCount="indefinite" />
                   </circle>
                 </svg>
-              </div>
+              </div>: null}
             </div>
           </section>
         </div>

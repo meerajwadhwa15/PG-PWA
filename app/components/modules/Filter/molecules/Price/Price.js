@@ -6,7 +6,7 @@ class PriceFilter extends PureComponent {
             showDropdown: false,
             minPrice: this.props.minprice,
             maxPrice: this.props.maxprice,
-            priceValues: [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 6000],
+            priceValues: [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 6000, 7000, 8000, 9000, 10000],
         });
     }
 
@@ -16,10 +16,42 @@ class PriceFilter extends PureComponent {
         });
     }
 
+    updateInputMaxPrice(val) {
+        this.setState({
+            maxPrice: val,
+        });
+
+        if(this.props.updateFilter) {
+            this.props.updateFilter({
+                key: 'maxprice',
+                value: val,
+            });
+        }
+    }
+
+    updateInputMinPrice(val) {
+        this.setState({
+            minPrice: val,
+            showDropdown: false,
+            maxPrice: null,
+        });
+
+        if(this.props.updateFilter) {
+            this.props.updateFilter({
+                key: 'minprice',
+                value: val,
+            });
+            this.props.updateFilter({
+                key: 'maxprice',
+                value: '',
+            });
+        }
+    }
+
     updateMaxPrice(e) {
         var val = e.currentTarget.dataset.value;
         this.setState({
-            maxPrice: val
+            maxPrice: val,
         });
 
         if(this.props.updateFilter) {
@@ -34,13 +66,18 @@ class PriceFilter extends PureComponent {
         var val = e.currentTarget.dataset.value;
         this.setState({
             minPrice: val,
-            showDropdown: false
+            showDropdown: false,
+            maxPrice: null,
         });
 
         if(this.props.updateFilter) {
             this.props.updateFilter({
                 key: 'minprice',
                 value: val,
+            });
+            this.props.updateFilter({
+                key: 'maxprice',
+                value: '',
             });
         }
     }
@@ -58,10 +95,14 @@ class PriceFilter extends PureComponent {
         {showDropdown ?
         <ul className="dropdown-menu" style={{display: 'block'}} role="menu">
             <li className="dropdown-input-range range-min form-group-numeric" data-rangemaxparam="maxprice">
-                <input type="text" name="minprice" value={minPrice} className="form-control" placeholder="Min" disabled="" />
+                <input type="text" onChange={(e) => {
+                    this.updateInputMinPrice(e.currentTarget.value);
+                }} name="minprice" defaultValue={minPrice} className="form-control" placeholder="Min" disabled="" />
             </li>
             <li className="dropdown-input-range range-max form-group-numeric" data-rangeminparam="minprice">
-                <input type="text" name="maxprice" value={maxPrice} className="form-control" placeholder="Max" disabled="" />
+                <input type="text" name="maxprice" onChange={(e) => {
+                    this.updateInputMaxPrice(e.currentTarget.value);
+                }} defaultValue={maxPrice} className="form-control" placeholder="Max" disabled="" />
             </li>
 
             {!minPrice?
@@ -77,7 +118,7 @@ class PriceFilter extends PureComponent {
             </li>
             : null}
 
-            {minPrice && !maxPrice?
+            {(minPrice && !maxPrice)?
             <li className="range-options tide-to-focus tide-to-focus-maxprice option-range-max" data-rangetype="max" data-tidetofocus="maxprice" data-targetname="maxprice">
                 <ul className="dropdown-menu" style={{display: 'block'}}>
                     <li className="dropdown-reset"><a href="#">No Max</a></li>

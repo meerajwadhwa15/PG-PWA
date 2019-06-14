@@ -21,7 +21,7 @@ class Filter extends PureComponent {
     doSearch() {
         Router.push({
             pathname: '/listings',
-            query: this.state,
+            query: {...this.state, timestamp: new Date().getTime()},
             shallow: true
           });
     }
