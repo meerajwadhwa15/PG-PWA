@@ -45,13 +45,13 @@ function displayNotification() {
       const title = 'Did you like TripleOne Somerset?';
       const options = {
         body: 'We noticed that you visited TripleOne Somerset? Did you like it?',
-        icon: 'images/icon.png',
-        badge: 'images/badge.png'
+        icon: '/icons/icon-96x96.png',
+        badge: '/icons/icon-96x96.png'
       };
 
       reg.showNotification(title, options);
     });
   }
 }
-setTimeout(displayNotification, 70000)
+
 

@@ -14,11 +14,23 @@ import DetailLoader from './../../../../molecules/DetailLoader';
 class PropertyDetailPage extends PureComponent {
 
   componentWillMount() {
+    this.setState({
+      showNotification: true
+    })
     const {propertDetailFetchAction, query} = this.props;
     if(query && query.id) {
       propertDetailFetchAction({
         listingId: query.id,
       });
+    }
+  }
+
+  componentDidMount() {
+    if(this.state.showNotification && displayNotification && typeof displayNotification === "function") {
+      this.setState({
+        showNotification: false
+      })
+      setTimeout(displayNotification, 15000);
     }
   }
 
