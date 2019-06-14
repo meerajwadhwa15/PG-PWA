@@ -40,9 +40,9 @@ class Filter extends PureComponent {
                     <div className="inner-container">
                         <div className="form-group search-box-parameters search-box-query clearfix">
                             <div className="input-group" style={{display: 'flex', height: '48px'}}>
-                                <Type {...this.props.query} updateFilter={this.updateFilter.bind(this)} />
+                                <Type listing_type={this.state.listing_type} updateFilter={this.updateFilter.bind(this)} />
                                 <Typeahead {...this.props.query} suggestion={this.props.suggestion} updateFilter={this.updateFilter.bind(this)} fetchSuggestionAction={this.props.fetchSuggestionAction} />
-                                <Price {...this.props.query} updateFilter={this.updateFilter.bind(this)} />
+                                <Price priceValues={this.state.listing_type === 'rent' ? [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 6000, 7000, 8000, 9000, 10000] : [500000, 600000, 700000, 800000, 900000, 1000000, 1100000, 1200000, 1300000, 1400000]} listing_type={this.state.listing_type} minprice={this.state.minprice} maxprice={this.state.maxprice} updateFilter={this.updateFilter.bind(this)} />
                                 {/* <Bedroom updateFilter={this.updateFilter.bind(this)} /> */}
                                 <div className="input-group-btn">
             <Button className="btn btn-primary btn-submit" onClick={this.doSearch.bind(this)} type="button" data-title="refined">

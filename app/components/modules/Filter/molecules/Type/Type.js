@@ -8,7 +8,7 @@ class TypeFilter extends PureComponent {
         if(val === 'rent') {
             val = 'Rent';
         } else {
-            val = 'Buy';
+            val = 'Sale';
         }
 
         this.setState({
@@ -32,7 +32,7 @@ class TypeFilter extends PureComponent {
 
         if(this.props.updateFilter) {
             this.props.updateFilter({
-                key: 'isting_type',
+                key: 'listing_type',
                 value: val.toLowerCase(),
             });
         }
@@ -48,10 +48,10 @@ class TypeFilter extends PureComponent {
 
             {showDropdown ?
                 <ul className="dropdown-menu" style={{display: 'block'}} role="menu">
-                    <li className={`${selectedValue === 'Buy'? 'active': ''}`}>
-                        <a href="javascript: void(0);" onClick={this.updateSelectedValue.bind(this)} className={`${selectedValue === 'Buy'? 'selected': ''}`}>Buy</a></li>
-                    <li className={`${selectedValue === 'Rent'? 'active': ''}`}>
-                        <a onClick={this.updateSelectedValue.bind(this)} className={`${selectedValue === 'Rent'? 'selected': ''}`} href="javascript: void(0);">Rent</a>
+                    <li className={`${this.props.listing_type === 'sale'? 'active': ''}`}>
+                        <a href="javascript: void(0);" onClick={this.updateSelectedValue.bind(this)} className={`${this.props.listing_type === 'sale'? 'selected': ''}`}>Sale</a></li>
+                    <li className={`${this.props.listing_type === 'rent'? 'active': ''}`}>
+                        <a onClick={this.updateSelectedValue.bind(this)} className={`${this.props.listing_type === 'rent'? 'selected': ''}`} href="javascript: void(0);">Rent</a>
                     </li>
                 </ul> :
                 null}

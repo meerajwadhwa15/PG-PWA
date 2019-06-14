@@ -2,11 +2,11 @@ import { Fragment, PureComponent } from 'react';
 import Button from './../../../../atoms/Button';
 class PriceFilter extends PureComponent {
     componentWillMount() {
+        console.log(this.props, 'this.props');
         this.setState({
             showDropdown: false,
             minPrice: this.props.minprice,
             maxPrice: this.props.maxprice,
-            priceValues: [500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 5000, 6000, 7000, 8000, 9000, 10000],
         });
     }
 
@@ -83,7 +83,8 @@ class PriceFilter extends PureComponent {
     }
 
     render() {
-        const { showDropdown, minPrice, maxPrice, priceValues } = this.state;
+        const { showDropdown, minPrice, maxPrice } = this.state;
+        const { priceValues } = this.props;
         return (
     <Fragment>
         <div className="js-form-group btn-group param- tide-to tide-to-listing_type  btn-group-range btn-price-range btn-group-expand-left price-filter" style={{width: '21%'}}>
