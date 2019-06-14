@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
 import Type from './../../molecules/Type';
 import Typeahead from './../../molecules/Typeahead';
-// import Price from './../../molecules/Price';
+ import Price from './../../molecules/Price';
 import Bedroom from './../../molecules/Bedroom';
 import Button from './../../../../atoms/Button';
 import { getSuggestion } from './Actions';
@@ -42,7 +42,7 @@ class Filter extends PureComponent {
                             <div className="input-group" style={{display: 'flex', height: '48px'}}>
                                 <Type {...this.props.query} updateFilter={this.updateFilter.bind(this)} />
                                 <Typeahead {...this.props.query} suggestion={this.props.suggestion} updateFilter={this.updateFilter.bind(this)} fetchSuggestionAction={this.props.fetchSuggestionAction} />
-                                {/* <Price updateFilter={this.updateFilter.bind(this)} /> */}
+                                <Price {...this.props.query} updateFilter={this.updateFilter.bind(this)} />
                                 {/* <Bedroom updateFilter={this.updateFilter.bind(this)} /> */}
                                 <div className="input-group-btn">
             <Button className="btn btn-primary btn-submit" onClick={this.doSearch.bind(this)} type="button" data-title="refined">

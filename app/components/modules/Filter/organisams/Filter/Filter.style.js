@@ -18,5 +18,9 @@ export default css`
     .tt-suggestion {
         text-align: left;
     }
+
+    .price-filter {
+        width: 21% !important;
+    }
 }
 `;

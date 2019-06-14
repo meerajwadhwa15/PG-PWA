@@ -1,7 +1,7 @@
 import {css} from 'styled-components';
 
 export default css`
-    width: 100%;
+    width: 62%;
 
     body {
         font-family: Helvetica, sans-serif;
