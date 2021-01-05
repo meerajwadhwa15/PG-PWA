@@ -1,7 +1,7 @@
 {
   "name": "PGPWA",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.16.4",
     "http": "0.0.0",
     "next": "^8.0.4",
